@@ -31,6 +31,14 @@ registerGuest("Манго", function greet(name) {
 registerGuest("Поли", function notify(name) {
   console.log(`Уважаемый(ая) ${name}, ваш номер будет готов через 30 минут.`);
 });
+++++++++++++++++++++++++++++++++++++++
+const doMath = function (a, b, callBack) {
+    console.log(callBack(a, b))
+}
+
+doMath(2, 3, function (x, y) {
+    return x + y;
+});
 
 ____________________________
 
@@ -93,3 +101,21 @@ repeat(3, prettyPrint);
 // Logging value: 1
 // Logging value: 2
 __________________________________________
+<!-- filtering random array using inline function  -->
+
+const filter = function (array, operationFn) {
+    const filteredArray = [];
+
+    for (const el of array) {
+        if (operationFn(el)) {
+            filteredArray.push(el)
+        }
+    }
+    return filteredArray
+}
+
+console.log(
+  filter([1, 2, 3], function (value) {
+    return value > 2;
+  })
+);
