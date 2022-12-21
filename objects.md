@@ -391,3 +391,30 @@ console.log(tag); // jgluke
 console.log(followers); // 5603
 console.log(userViews); // 4827
 console.log(userLikes); // 1308
+
+___________________________________________________
+<!-- Проверка отсутствия ключа -->
+
+const user = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+  stats: {
+    followers: 5603,
+    views: 4827,
+    likes: 1308,
+  },
+};
+
+console.log(user.stats.followers);
+// it is ok, but if data was lost?
+
+const user2 = {
+  name: "Jacques Gluke",
+  tag: "jgluke",
+ 
+};
+
+console.log(user2.stats.followers);
+// now everything is broken
+console.log(user2?.stats?.followers);
+// now we got undefined instead.
