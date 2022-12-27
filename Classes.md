@@ -25,7 +25,8 @@ console.log(poly); // { name: 'Поли', email: 'poly@mail.com' }
 
 class User {
   // Деструктуризируем объект
-  constructor({ name, email }) {
+  *** Тут важно поставить значение по умолчанию ***
+  constructor({ name, email } = {})  {
     this.name = name;
     this.email = email;
   }

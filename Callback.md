@@ -1,3 +1,5 @@
+*** При передаче метода обекта obj.method  как callBack функции, контекст для this не сохраняется, РЕШАЕТСЯ так - obj.method.bind(obj) ***
+
 <!-- // Колбэк-функция -->
 function greet(name) {
   console.log(`Добро пожаловать ${name}.`);
