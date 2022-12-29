@@ -179,6 +179,12 @@ class User {
   }
 }
 
+// Если добавить метод вне класса
+User.static = function () {
+    console.log("static ");
+}
+// он будет статическим
+
 const mango = new User({
   email: "mango@mail.com",
   role: User.Roles.ADMIN,
@@ -301,8 +307,8 @@ const ad = new admin({
 })
 
 console.log(ad.email);
+*** приватное свойство присутствует в экземпляре, но его нельзя прочитать или перезаписать ***
 
-???????????? 
 
 <!-- Конструктор дочернего класса -->
 
