@@ -37,6 +37,10 @@ const makeProductCard = ({name, description, price}) => {
 
 const elements = products.map(makeProductCard) //callBack
 
+//const elements = products.map(
+//   (product) => makeProductCard(product)
+// ); //callBack
+
 console.log(elements);
 
 const productsContainerEl =
