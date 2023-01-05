@@ -1,3 +1,7 @@
+***event.currentTarget -при клике это то где висит слушатель событий***  
+***event.target - при клике конкретный елемент на который кликнули.***
+***if event.currentTarget === event.target можно что б закрывалась модалка. Ти па при клике вне модального окна, при клике на сам бэкдроп***
+
 <!-- Метод addEventListener() -->
 element.addEventListener(event, handler, options);
 
@@ -25,7 +29,7 @@ button.addEventListener("click", handleClick);
 
 element.removeEventListener(event, handler, options);
 
-Для удаления нужно передать ссылку именно на ту коллбэк-функцию, которая была назначена в addEventListener(). В таком случае для коллбэков используют отдельную функцию и передают её по имени (ссылку).
+***Для удаления нужно передать ссылку именно на ту коллбэк-функцию, которая была назначена в addEventListener(). В таком случае для коллбэков используют отдельную функцию и передают её по имени (ссылку). Иначе не сработает, так как функции не равны, их ссылки разные, а если ставить ссылку на одну и ту  же функцию, то слушатель снимается именно тот (называется ссылочная идентичность колбэков***
 
 <!-- Ключевое слово this -->
 Если коллбэком будет функция которая использует this, по умолчанию контекст внутри неё будет ссылаться на DOM-элемент на котором висит слушатель.
@@ -125,6 +129,12 @@ document.addEventListener("keydown", event => {
 
 Отправка формы происходит при клике по кнопке с атрибутом type="submit" или нажатии клавиши Enter, находясь в каком-нибудь её текстовом поле. Событие submit можно применить для валидации (проверки) формы перед отправкой, так как на объекте события есть много полезных свойств связанных с элементами формы. Сабмит формы перезагружает страницу, поэтому не забывайте отменять действие по умолчанию методом preventDefault().
 
+<form class="form" autocomplete="off">
+  <input type="text" name="login" placeholder="Login">
+  <input type="password" name="password" placeholder="Password">
+  <button class="btn" type="submit">Register</button>
+</form>
+
 const form = document.querySelector(".form");
 
 form.addEventListener("submit", handleSubmit);
@@ -144,6 +154,22 @@ function handleSubmit(event) {
 }
 
 Свойство elements DOM-элемента формы содержит обьект со ссылками на все её элементы у которых есть атрибут name. Поэтому в примере мы получаем значение полей обращаясь к login.value и password.value.
+
+***Что б собрать данные всей формы - FormData***
+
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const formData = new FormData(event.currentTarget);
+  formData.forEach((value, name) => {
+    console.log(value);
+    console.log(name);
+})}
+
+
 
 <!-- Событие change -->
 Происходит после изменения элемента формы. Для текстовых полей или textarea событие произойдёт не при каждом вводе символа, а при потере фокуса, что не всегда удобно. Например, пока вы набираете что-то в текстовом поле - события нет, но как только фокус пропал, произойдет событие change. Для остальных элементов, например select, чекбоксов и радио-кнопок, событие change срабатывает сразу при выборе значения.
@@ -197,6 +223,8 @@ const output = document.querySelector(".output");
 textInput.addEventListener("input", (event) => {
   output.textContent = event.currentTarget.value;
 });
+
+***Span не имеет value, имеет textContent***
 
 
 <!-- События focus и blur -->

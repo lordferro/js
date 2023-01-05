@@ -1,48 +1,18 @@
-import products from "./products.js";
-console.log(products);
+const refs = {
+  input: document.querySelector('.js-input'),
+  submit: document.querySelector('.js-submit'),
+  license: document.querySelector('.js-checkbox'),
+  nameInButton: document.querySelector('.js-submit > span'),
+}
 
-const makeProductCard = ({
-  name,
-  description,
-  price,
-}) => {
-  const productEl =
-    document.createElement("article");
-  productEl.classList.add("product");
+refs.input.addEventListener('input', onInputChange);
+refs.license.addEventListener('change', onCheckboxChange);
 
-  const productTitleEl =
-    document.createElement("h2");
-  productTitleEl.classList.add("product__name");
-  productTitleEl.textContent = name;
+function onInputChange(event) {
+ return refs.nameInButton.textContent = event.currentTarget.value;
+}
 
-  const productDescriptionEl =
-    document.createElement("p");
-  productDescriptionEl.classList.add(
-    "product__descr"
-  );
-  productDescriptionEl.textContent = description;
+function onCheckboxChange(event) {
+  return refs.submit.disabled = !refs.license.checked;
+}
 
-  const productPriceEl =
-    document.createElement("p");
-  productPriceEl.classList.add("product__price");
-  productPriceEl.textContent = price;
-
-  productEl.append(
-    productTitleEl,
-    productDescriptionEl,
-    productPriceEl
-  );
-
-  return productEl;
-};
-
-// const elements = products.map(
-//   (product) => makeProductCard(product)
-// ); //callBack
-
-console.log(elements);
-
-const productsContainerEl =
-  document.querySelector(".js-color-picker");
-
-productsContainerEl.append(...elements);
