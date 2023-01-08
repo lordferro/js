@@ -32,7 +32,6 @@ outline: 1px solid tomato;
 
 
 const divRef = document.querySelector('.div');
-const itemRef = document.querySelector('item');
 
 divRef.addEventListener('click', onClick);
 
@@ -57,4 +56,33 @@ function onClick(evt) {
     const selectedTag = nextActiveBtn.dataset.value;
 
     console.log(selectedTag);
+} 
+
+
+++++++++++++++++++++++++++++
+Выбрать несколько кнопок
+
+const divRef = document.querySelector('.div');
+
+divRef.addEventListener('click', onClick);
+// Create new set to inhold selected tags
+const selectedTag = new Set();
+
+function onClick(evt) {
+  const btn = evt.target;
+// Check if we click onthe button? not on the parent DIV
+    if (btn.nodeName !== 'BUTTON') {
+        return
+    }
+    // Check if selectedTag contain tag
+  const isActiveBtn = btn.classList.contains(
+    "item--active"
+  );
+  if (isActiveBtn) {
+    selectedTag.delete(btn.dataset.value);
+  } else {
+    selectedTag.add(btn.dataset.value);    
+  } 
+  btn.classList.toggle("item--active");
+  console.log(selectedTag);
 } 
