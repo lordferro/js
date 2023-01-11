@@ -2,6 +2,9 @@
 ***event.target - при клике конкретный елемент на который кликнули.***
 ***if event.currentTarget === event.target можно что б закрывалась модалка. Ти па при клике вне модального окна, при клике на сам бэкдроп***
 
+ ***image.addEventListener('load', onImageLoaded, {once: true}); слушатель выполнится один раз и удалится***
+ ***image.addEventListener('load', onImageLoaded, {once: true}); событие выполнится поссле загрузки картинки***
+
 <!-- Метод addEventListener() -->
 element.addEventListener(event, handler, options);
 
