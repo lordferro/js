@@ -14,7 +14,7 @@ refs.form.addEventListener(
   onFormSubmit
 );
 
-refs.form.addEventListener('input', onFormInput)
+refs.form.addEventListener("input", onFormInput);
 
 populateTextarea();
 
@@ -27,18 +27,21 @@ function onFormSubmit(evt) {
 }
 
 function onFormInput(e) {
-    
-      // take formData and in this key put this value
-    formData[e.target.name] = e.target.value;  
-    
-    const stringFormData = JSON.stringify(formData);
-    console.log(stringFormData);
-    localStorage.setItem('STORAGE_KEY', stringFormData)    
+  // take formData and in this key put this value
+  formData[e.target.name] = e.target.value;
+
+  const stringFormData = JSON.stringify(formData);
+  console.log(stringFormData);
+  localStorage.setItem(
+    "STORAGE_KEY",
+    stringFormData
+  );
 }
 
 function populateTextarea() {
-    const savedMessage = JSON.parse(localStorage.getItem(
-        "STORAGE_KEY"));   
+  const savedMessage = JSON.parse(
+    localStorage.getItem("STORAGE_KEY")
+  );
 
   // we need to check if there is something, if user first time on this page there will be null
   if (savedMessage) {

@@ -115,7 +115,7 @@ function onFormSubmit(evt) {
   // since user submitted form we reset form
   evt.currentTarget.reset();
   // and clearing localStorage only exactly that key
-  localStorage.removeItem("STORAGE_KEY");
+  localStorage.removeItem(STORAGE_KEY);
 }
 
 function onFormInput(e) {
@@ -125,12 +125,12 @@ function onFormInput(e) {
     
     const stringFormData = JSON.stringify(formData);
     console.log(stringFormData);
-    localStorage.setItem('STORAGE_KEY', stringFormData)    
+    localStorage.setItem(STORAGE_KEY, stringFormData)    
 }
 
 function populateTextarea() {
     const savedMessage = JSON.parse(localStorage.getItem(
-        "STORAGE_KEY"));   
+        STORAGE_KEY));   
 
   // we need to check if there is something, if user first time on this page there will be null
   if (savedMessage) {
@@ -138,3 +138,6 @@ function populateTextarea() {
     refs.textarea.value = savedMessage.textarea;
   }
 }
+
+
+
