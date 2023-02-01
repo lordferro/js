@@ -557,38 +557,71 @@ function hmrAccept(bundle, id) {
 }
 
 },{}],"1Z4Rq":[function(require,module,exports) {
-// we use const to avoid mistake in name (avoiding antipattern magic string and numbers)
-const STORAGE_KEY = "nameOfKey";
-const formData = {};
 const refs = {
-    textarea: document.getElementById("textarea"),
-    form: document.getElementById("form"),
-    name: document.getElementById("name")
+    startBtn: document.querySelector("button[data-action-start]"),
+    stopBtn: document.querySelector("button[data-action-stop]"),
+    clockface: document.querySelector(".js-clockface")
 };
-refs.form.addEventListener("submit", onFormSubmit);
-refs.form.addEventListener("input", onFormInput);
-populateTextarea();
-function onFormSubmit(evt) {
-    evt.preventDefault();
-    // since user submitted form we reset form
-    evt.currentTarget.reset();
-    // and clearing localStorage only exactly that key
-    localStorage.removeItem("STORAGE_KEY");
-}
-function onFormInput(e) {
-    // take formData and in this key put this value
-    formData[e.target.name] = e.target.value;
-    const stringFormData = JSON.stringify(formData);
-    console.log(stringFormData);
-    localStorage.setItem("STORAGE_KEY", stringFormData);
-}
-function populateTextarea() {
-    const savedMessage = JSON.parse(localStorage.getItem("STORAGE_KEY"));
-    // we need to check if there is something, if user first time on this page there will be null
-    if (savedMessage) {
-        refs.name.value = savedMessage.name;
-        refs.textarea.value = savedMessage.textarea;
+class Timer {
+    // в конструкторе деструктуризируем onTick
+    constructor({ onTick  }){
+        this.intervalId = null;
+        this.isActive = false;
+        this.onTick = onTick;
+        // при запуске показывает нули
+        this.resetTimer();
     }
+    // при запуске показывает нули
+    resetTimer() {
+        const time = this.getTimeComponents(0);
+        this.onTick(time);
+    }
+    start() {
+        // проверяем или таймер не активен уже
+        if (this.isActive) // выходим если таймер уже активен
+        return;
+        const startTime = Date.now();
+        // послезапуска таймера, делаем его активным что б нельзя было запустить ещё один.
+        this.isActive = true;
+        this.intervalId = setInterval(()=>{
+            const currentTime = Date.now();
+            const deltaTime = currentTime - startTime;
+            const time = this.getTimeComponents(deltaTime);
+            this.onTick(time);
+        }, 1000);
+    }
+    stop() {
+        clearInterval(this.intervalId);
+        // делаем таймер не активным т к остановили его
+        this.isActive = false;
+        // после остановки таймера - обнуляем 
+        this.resetTimer();
+    }
+    // Принимает время в милисекундах, выдаёт нормамльное время, добави ноль в начале функцией pad
+    getTimeComponents(time) {
+        const hours = this.pad(Math.floor(time % 1440000 / 3600000));
+        const mins = this.pad(Math.floor(time % 3600000 / 60000));
+        const secs = this.pad(Math.floor(time % 60000 / 1000));
+        return {
+            hours,
+            mins,
+            secs
+        };
+    }
+    // добавить ноль в начале, если число одинарное.
+    pad(value) {
+        return String(value).padStart(2, "0");
+    }
+}
+// в обьекте настроек передаём onTick, модель данных должна получать информацию о функциях как обьект настроек, потому что эта модель(класс) можеть быть таймером для другого интерфейса, и ему передадим другую разметку.
+const timer = new Timer({
+    onTick: updateClockFace
+});
+// если передать callback просто то контекст будет startBtn/stopBtn, поэтому привязываем контекст
+refs.startBtn.addEventListener("click", timer.start.bind(timer));
+refs.stopBtn.addEventListener("click", timer.stop.bind(timer));
+function updateClockFace({ hours , mins , secs  }) {
+    refs.clockface.textContent = `${hours}:${mins}:${secs}`;
 }
 
 },{}]},["jy52z","1Z4Rq"], "1Z4Rq", "parcelRequiref536")
