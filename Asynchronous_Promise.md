@@ -174,6 +174,63 @@ fetchUserFromServer("Mango")
   .then(user => console.log(user))
   .catch(error => console.error(error));
 
+  +++++++++++++++++++++++
+
+  // Примисификация функции makeOrder, она возвращает промис, и мы уже снаружи работаем через then и catch, makeOrder незнает о том коде который её вызывает
+
+const makeOrder = (dish) => {
+  const DELAY = 1000;
+
+  return new Promise(
+    (resolve, reject) => {
+      const passed = Math.random() > 0.5;
+
+      setTimeout(() => {
+        if (passed) {
+          resolve("cooking");
+        } else {
+          reject("no products");
+        }
+      }, DELAY);
+    }
+  );
+  // надо вернуть промис от сюда, что б использовать then во внешнем коде
+    
+};
+
+// присваиваем р промис
+const p =  makeOrder("cookie");
+p.then(onOrderSuccess).catch(onOrderFail);
+
+// можно сделать так makeOrder("cookie").then(onOrderSuccess).catch(onOrderFail);
+
+function onOrderSuccess(result) {
+    console.log(result);
+}
+
+function onOrderFail(error) {
+    console.log(error);
+}
+
+++++++++++++++++++++++++++++++++++++++
+
+// https://pokeapi.co/api/v2/pokemon/1
+// Запрос на сервер
+
+const fetchPokemonById = id => {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((r) => r.json());
+}
+
+fetchPokemonById(1).then(onFetchSuccess).catch(onFetchError);
+
+function onFetchError(error) {
+  console.log(error);
+};
+
+function onFetchSuccess (pokemon){
+  console.log(pokemon);
+};
+
   _________________________________________________________
 
 ***  Promise.all()***
@@ -238,3 +295,154 @@ new Promise((resolve, reject) => reject("error")).catch(error =>
 );
 
 Promise.reject("error").catch(error => console.error(error));
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+const horses = [
+  "Secretariat",
+  "Eclipse",
+  "West",
+  "Fox",
+  "Seabiscuit",
+];
+
+function run(horse) {
+  return new Promise((resolve) => {
+    const time = getRandomTime(2000, 3500);
+
+    setTimeout(() => {
+      resolve({ horse, time });
+    }, time);
+  });
+}
+
+function getRandomTime(min, max) {
+  return Math.floor(
+    Math.random() * (max - min + 1) + min
+  );
+}
+
+console.log('%c Race started...', 'color: brown',);
+
+// Запустили одну лошадь
+run("Manog").then((x) => console.log(x));
+//  Но нам нужно запустить всех лошадей, создадим массим промисов
+
+// run передали как callback, вызовется для кажджого элемента массива horses  
+const promises = horses.map(run);
+
+// race выполнится самы первый промис и всё.
+Promise.race(promises).then(({ horse, time }) => console.log(`${horse} finishing with time ${time}`));
+
+// all выполнит все промисы
+
+Promise.all(promises).then(x =>
+  console.log(x.map(({ horse, time }) => console.log(`${horse} finishing with time ${time}`))));
+  
+  ++++++++++++++++++++++++++++++++++++++++
+
+  <button class="js-start-race">Next race</button>
+<hr>
+<p class="js-progress"></p>
+<p class="js-winner"></p>
+<hr>
+
+<table class="js-results-table">
+  <thead>
+    <tr>
+      <th>Race</th>
+      <th>Winner</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+</table>
+
+const horses = [
+  "Secretariat",
+  "Eclipse",
+  "West",
+  "Fox",
+  "Seabiscuit",
+];
+
+let raceCounter = 0;
+
+const refs = {
+  startBtn: document.querySelector(
+    ".js-start-race"
+  ),
+  winnerField:
+    document.querySelector(".js-winner"),
+  progressField: document.querySelector(
+    ".js-progress"
+  ),
+  tableBody: document.querySelector(
+    ".js-results-table"
+  ),
+};
+
+refs.startBtn.addEventListener("click", onStart);
+
+function onStart() {
+  raceCounter += 1;
+
+  // Получаем массив промисов, запускаем всех лошадей
+ const promises = horses.map(run);
+
+ updateWinnerField("");
+
+ updateProgressField("Race is started");
+
+ determineWinner(promises);
+
+ waitForAllHorses(promises);
+}
+
+function waitForAllHorses(horseP) {
+  Promise.all(horseP).then((x) =>
+    updateProgressField("Race is finished")
+  );
+}
+
+function determineWinner(horsesP) {
+  Promise.race(horsesP).then(
+    ({ horse, time }) => {
+      updateWinnerField(
+        `${horse} finishing with time ${time}`
+      );
+      updateResultsTable({ horse, time, raceCounter });
+    }
+  );
+}
+
+function run(horse) {
+  return new Promise((resolve) => {
+    const time = getRandomTime(2000, 3500);
+
+    setTimeout(() => {
+      resolve({ horse, time });
+    }, time);
+  });
+}
+
+function getRandomTime(min, max) {
+  return Math.floor(
+    Math.random() * (max - min + 1) + min
+  );
+}
+
+function updateWinnerField(message) {
+  refs.winnerField.textContent = message;
+}
+
+function updateProgressField(message) {
+  refs.progressField.textContent = message;
+}
+
+function updateResultsTable({ horse, time, raceCounter }) {
+  const tr = ` <tr><td>${raceCounter}</td><td>${horse}</td><td>${time}</td></tr>`;
+  refs.tableBody.insertAdjacentHTML(
+    "beforeend",
+    tr
+  );
+}
