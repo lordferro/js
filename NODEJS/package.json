@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "MyScript": "To start it type in terminal: npm run MyScript",
-    "prestart": "echo \"this is pre start\"",
-    "poststart": "echo \"this is post start\"",
+  "scripts": {    
+    "start": "node index.js",  
     "build": "babel src -d transpilated"
   },
   "keywords": [],
