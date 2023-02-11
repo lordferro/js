@@ -1,4 +1,4 @@
-4472
+4468
 72C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@msgpackr-extract133182845110431240 1
 86C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\regions\DK.js133182793312003150 0
 84C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\terser\lib\compress\inline.js133182793302279223 0
@@ -25,7 +25,7 @@
 104C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\features\css-read-only-write.js133182793310108234 0
 52C:\Users\lordf\Documents\GitHub\js\parcel\.gitignore133182831317509089 0
 86C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\regions\RU.js133182793321162825 0
-46C:\Users\lordf\Documents\GitHub\js\parcel\dist133182852013220067 1
+46C:\Users\lordf\Documents\GitHub\js\parcel\dist133205115434595992 1
 78C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\csso\lib\replace\atrule133182793300892890 1
 105C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\posthtml\node_modules\posthtml-parser\package.json133182793289194233 0
 89C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\mdn-data\css\selectors.schema.json133182793296165620 0
@@ -744,7 +744,7 @@
 100C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\watcher\src\windows\WindowsBackend.cc133182793295168219 0
 95C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\yaml\browser\dist\resolveSeq-492ab440.js133182793297491994 0
 72C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\nth-check\LICENSE133182793284835871 0
-65C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.67d25170.css133182829134835449 0
+65C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.67d25170.css133205115434296790 0
 87C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\type-fest\source\promisable.d.ts133182793297152896 0
 112C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\mtest4.c133182793305729951 0
 98C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\features\text-emphasis.js133182793322719533 0
@@ -1893,6 +1893,7 @@
 98C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\lmdb\node_modules\node-addon-api\napi-inl.h133182793291966777 0
 85C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\domutils\lib\querying.d.ts.map133182793294200820 0
 103C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\packager-js\lib\ScopeHoistingPackager.js133182793315653383 0
+68C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.0130741c.js.map133205115434586017 0
 97C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\lmdb\node_modules\node-addon-api\README.md133182793295806503 0
 107C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\lmdb\node_modules\node-addon-api\tools\check-napi.js133182793293363048 0
 99C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\workers\lib\threads\ThreadsWorker.js133182793303605633 0
@@ -2519,7 +2520,7 @@
 142C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\core\test\fixtures\plugins\node_modules\parcel-transformer-bad-engines\index.js133182793335473316 0
 69C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\csso\README.md133182793303087024 0
 89C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\graph\lib\AdjacencyList.js133182793292395649 0
-57C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.html133182852013090424 0
+57C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.html133205115434296790 0
 105C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@swc\helpers\src\_define_enumerable_properties.mjs133182793307973940 0
 81C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\dist\unpacker133182793320986754 1
 69C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\csso\lib\clean133182793302618267 1
@@ -3172,7 +3173,7 @@
 100C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\features\custom-elements.js133182793311295041 0
 102C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\features\custom-elementsv1.js133182793311305030 0
 84C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\source-map\index.d.ts133182793306727332 0
-68C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.975ef6c8.js.map133182852012970748 0
+68C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.975ef6c8.js.map133205115180055837 0
 96C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\features\customevent.js133182793311314991 0
 93C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\caniuse-lite\data\features\datalist.js133182793311564327 0
 93C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@parcel\core\src\public\BundleGroup.js133182793330978916 0
@@ -4364,7 +4365,7 @@
 91C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@jridgewell\gen-mapping\src\types.ts133182793293512642 0
 99C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@jridgewell\gen-mapping\dist\gen-mapping.mjs133182793291148964 0
 103C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@jridgewell\gen-mapping\dist\gen-mapping.mjs.map133182793288695540 0
-65C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.bd4bbb3e.css133182852012023268 0
+65C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.bd4bbb3e.css133205115179906250 0
 89C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@jridgewell\gen-mapping\dist\types133182793293183526 1
 106C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@jridgewell\gen-mapping\dist\types\gen-mapping.d.ts133182793291886996 0
 65C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\@hapi\hoek133182845108407397 1
@@ -4440,7 +4441,7 @@
 76C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\browserslist.cmd133182793880378827 0
 75C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\detect-libc.ps1133182793880378827 0
 91C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\download-msgpackr-prebuilds.cmd133182793880378827 0
-69C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.67d25170.css.map133182829134975068 0
+69C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.67d25170.css.map133205115434436420 0
 91C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\download-msgpackr-prebuilds.ps1133182793880378827 0
 65C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\json5133182793880378827 0
 69C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\json5.cmd133182793880378827 0
@@ -4463,11 +4464,6 @@
 68C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\svgo.ps1133182793880434530 0
 70C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\terser.cmd133182793880414579 0
 70C:\Users\lordf\Documents\GitHub\js\parcel\node_modules\.bin\terser.ps1133182793880424553 0
-64C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.29dce1df.js133182831608367289 0
-68C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.29dce1df.js.map133182831608556774 0
-64C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.2e6441ad.js133182832988371198 0
-68C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.2e6441ad.js.map133182832988520785 0
-64C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.975ef6c8.js133182852012920875 0
-64C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.a07e4a34.js133182829134835449 0
-68C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.a07e4a34.js.map133182829134975068 0
-69C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.bd4bbb3e.css.map133182852012083126 0
+64C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.0130741c.js133205115434306766 0
+64C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.975ef6c8.js133205115179916207 0
+69C:\Users\lordf\Documents\GitHub\js\parcel\dist\index.bd4bbb3e.css.map133205115180045883 0
