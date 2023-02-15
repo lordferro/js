@@ -1,4 +1,4 @@
-Запуск массива промисов на выполнение одновременно
+***Запуск массива промисов на выполнение одновременно***
 
 <button type="button" class="btn">Fetch users</button>
 <ul class="user-list"></ul>
@@ -53,3 +53,40 @@ function renderUserListItems(users) {
     .join("");
   userList.innerHTML = markup;
 }
+
+
++++++++++++++++++++++++++++++++++++++++++
+
+function getFruit(name) {
+  const fruits = {
+    strawberry: '🍓',
+    kiwi: '🥝 ',
+    apple: '🍎',
+  };
+
+  return new Promise((resolve, reject) =>
+    setTimeout(() => resolve(fruits[name]), 500),
+  );
+}
+
+async function aMakeSmoothie() {
+  try {
+    <!-- засёк время -->
+    console.time('aMakeSmoothie');
+    <!-- Тут в переменную записывается промис  -->
+    const apple = getFruit('apple');
+    const kiwi = getFruit('kiwi');
+    const berry = getFruit('strawberry');
+<!-- тут эти переменные добавляются в массив, и вызываются ОДНОВРЕМЕННО -->
+    const fruits = await Promise.all([apple, kiwi, berry]);
+    console.log(fruits);
+  <!-- остановил время -->
+    console.timeEnd('aMakeSmoothie');
+
+    return fruits;
+  } catch (error) {
+    console.log('Ошибка');
+  }
+}
+
+aMakeSmoothie().then(fruits => console.log(fruits));
