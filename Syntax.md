@@ -1,4 +1,6 @@
-
+getBoundingClientRect() - metaData of element;
+window.pageYOfset - scrolled pixels;
+document.elementFromPoint(0,0) - pick element on this coordinates;
 __________________
 "use strict"
 
