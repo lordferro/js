@@ -1,3 +1,5 @@
+
+
 ***branch forcing (-f)***
 
 git commit
@@ -28,7 +30,13 @@ Reset отлично работает на локальных ветках, в �
 git revert HEAD
 После revert можно сделать push и поделиться изменениями с остальными.
 
-
+Use git stash list to list all previously stashed commits.
+stash@{0}: WIP on submit: 6ebd0e2... Update git-stash documentation
+stash@{1}: On master: 9cc0589... Add git-stash
+Run a version of git stash:
+Use git stash pop to redo previously stashed changes and remove them from stashed list.
+Use git stash apply to redo previously stashed changes, but keep them on stashed list.
+Undo committed local changes
 
 
 *********************
